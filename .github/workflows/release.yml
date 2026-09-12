@@ -1,7 +1,6 @@
 name: Release Browser Extension
 
 on:
-  workflow_dispatch:
   push:
     tags:
       - 'v*'
