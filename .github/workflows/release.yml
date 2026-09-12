@@ -37,7 +37,7 @@ jobs:
       - name: Package Extension
         run: |
           cd dist
-          zip -r ../opal-to-sheets-${{ github.ref_name }}.zip .
+          zip -r ../flow-downloader-${{ github.ref_name }}.zip .
 
       - name: Attest Build Provenance
         uses: actions/attest-build-provenance@v2
