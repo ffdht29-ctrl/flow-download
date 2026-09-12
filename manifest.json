@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "Flow 素材下载助手",
+  "version": "1.0.5",
+  "minimum_chrome_version": "111",
+  "description": "扫描 Flow 图片与视频，预览勾选，按原始视频、1K 或优先 2K 批量下载。",
+  "permissions": [
+    "downloads",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+    "action": {
+    "default_title": "打开 Flow 下载助手",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://labs.google/*",
+        "https://flow.google/*",
+        "https://flow.google.com/*"
+      ],
+      "js": [
+        "bridge.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://labs.google/*",
+        "https://flow.google/*",
+        "https://flow.google.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
